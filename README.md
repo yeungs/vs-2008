@@ -1,7 +1,9 @@
 Description
 ===========
 
-Installs and configures Visual Studio 2008 + SP1.
+Installs and configures Visual Studio 2008 + SP1. This includes all features of Visual Studio 2008 including the 64-bit C++ compiler. By default the 64-bit C++ compiler is not enabled for installation. I also added a registry to disable the Windows compatibility popup for SQL 2005 since it is not supported on Windows 8.1 2012 R2. 
+
+TODO. I need to add more documentation and comments. Please stay tuned or ask me questions.
 
 Requirements
 ============
