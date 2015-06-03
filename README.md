@@ -3,11 +3,11 @@ Description
 
 Installs and configures Visual Studio 2008 + SP1. 
 
-This includes all features of Visual Studio 2008 including the 64-bit C++ compiler. By default the 64-bit C++ compiler is not enabled for installation. No Documentation installed. 
+This includes all features of Visual Studio 2008 including the 64-bit C++ compiler. The default Visual Studio 2008 installer does not enable the 64-bit C++ compiler installation. The "/full" option used here would enable 64-bit compile to install. No Documentation is installed. 
 
-For some reason, the custom INI file for the silent install fails to launch due to dependencies. However, it launches fine if we don't use an INI file and therefore we did the /full install. :(
+For some reason, the custom INI file for the silent install fails to launch on Windows 8.1/Server 2012 R2 due to dependencies. However, it launches fine if we don't use an INI file and use the "/full" option. :(
 
-I also added a registry key to disable the Windows compatibility popup for SQL 2005 install since it is not supported on Windows 8.1 2012 R2. 
+I added a registry key to disable the Windows compatibility popup for SQL 2005 install since it is not supported on Windows 8.1/Server 2012 R2. 
 
 Our purpose was to run server configuration automation inside a corporate firewall with no internet connection for security reason. :( 
 
@@ -22,13 +22,12 @@ Requirements
 Platform
 --------
 
-* Windows
+* Windows with Chef client 11.14.2
 
 Tested on:
 
-* Windows 2012 R2
+* Windows Server 2012 R2
 * Windows 8.1
-* with Chef client 11.14.2
 
 Cookbooks
 ---------
