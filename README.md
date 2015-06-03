@@ -1,9 +1,20 @@
 Description
 ===========
 
-Installs and configures Visual Studio 2008 + SP1. This includes all features of Visual Studio 2008 including the 64-bit C++ compiler. By default the 64-bit C++ compiler is not enabled for installation. I also added a registry to disable the Windows compatibility popup for SQL 2005 since it is not supported on Windows 8.1 2012 R2. 
+Installs and configures Visual Studio 2008 + SP1. 
 
-TODO. I need to add more documentation and comments. Please stay tuned or ask me questions.
+This includes all features of Visual Studio 2008 including the 64-bit C++ compiler. By default the 64-bit C++ compiler is not enabled for installation. No Documentation installed. 
+
+For some reason, the custom INI file for the silent install fails to launch due to dependencies. However, it launches fine if we don't use an INI file and therefore we did the /full install. :(
+
+I also added a registry key to disable the Windows compatibility popup for SQL 2005 install since it is not supported on Windows 8.1 2012 R2. 
+
+Our purpose was to run server configuration automation inside a corporate firewall with no internet connection for security reason. :( 
+
+Please see usage below for more details.
+
+This takes about 35 minutes to run on my machine since it downloads the ISO, unzips it to a local path and then runs the install. I tried running mount-diskimage for the ISO (available in Windows 8.1/2012 R2 or newer) to save time by skipping the unzip but it kept crashing on dismount-diskimage of the ISO in order for me to delete it. :(
+
 
 Requirements
 ============
@@ -17,12 +28,14 @@ Tested on:
 
 * Windows 2012 R2
 * Windows 8.1
+* with Chef client 11.14.2
 
 Cookbooks
 ---------
 
 * Windows
 * 7-zip
+* ms_dotnet35 (.net 3.5 must be enabled on Windows 8.1/2012 R2)
 
 Resources and Providers
 =======================
@@ -32,15 +45,21 @@ Resources and Providers
 Attributes
 ==========
 
-* node['vs-2008']['base-iso-location']    = "https://msdn.microsoft.com/subscriptions/json/GetDownloadRequest?brand=MSDN&locale=en-US&fileId=14233&activexDisabled=true&akamaiDL=false"
+* node['vs-2008']['base-network-location']    = 'http://my-iis-redirect-server/visual-studio'
 
 Usage
 =====
 
-* Download Visual Studio 2008 Ultimate (x86) - DVD: http://msdn.microsoft.com/en-us/subscriptions/json/GetDownloadRequest?brand=MSDN&locale=en-us&fileId=41833&activexDisabled=false
-* Download Visual Studio 2008 SP1 - DVD: https://msdn.microsoft.com/en-us/subscriptions/securejson/GetDownloadRequest?brand=MSDN&locale=en-us&fileId=45796&activexDisabled=false
-* Place the ISOs you downloaded on a network share that is accessible from the computers you wish to install VS 2008 + SP1 on
+* Download Visual Studio 2008 Professional (x86) - ISO: from the source "https://msdn.microsoft.com/subscriptions/json/GetDownloadRequest?brand=MSDN&locale=en-US&fileId=14233&activexDisabled=true&akamaiDL=false")
+* Download Visual Studio 2008 SP1 - ISO: https://msdn.microsoft.com/subscriptions/json/GetDownloadRequest?brand=MSDN&locale=en-us&fileId=37031&activexDisabled=true&akamaiDL=false
+* Place the ISOs you downloaded on a network share 
+* created and ran a Chef recipe (publish soon) on a seperate to configure a Microsoft IIS that created an internal HTTP website to point the file share.
 * Override the default attributes to match your network environment, ideally using a hostname instead of an IP (see attributes section, above)
+
+The allowed us to serve the ISO, EXE, ZIP, MSI, etc... from an internal HTTP site. The HTTP is better than using Windows NTFS network file share since we don'tt have specify any user/password credentials.
+
+Please view sample role file "sample.role.vs2008-professional-x14-26326.rb" for better understanding.
+
 
 License and Author
 ==================

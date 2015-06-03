@@ -41,7 +41,7 @@ registry_key node['vs-2008']['sql-server-appcompat']['path'] do
 end
 
 vs2008_extraction_path = win_friendly_path(node['vs-2008']['base-extraction-path'])
-vs2008_iso_location = node['vs-2008']['base-iso-location']
+
 
 # Extracting the ISO image
 seven_zip_archive 'extracting_visual_studio_iso' do
@@ -74,7 +74,7 @@ end
 vs2008_sp1_is_installed = is_vs2008_sp1_version_installed?()
 Chef::Log.info("Installing Visual Studio 2008 SP1.") 
 Chef::Log.info("Visual Studio 2008 SP1 is already installed!!! Skipping the installation.") if vs2008_sp1_is_installed
-#return if vs2008_sp1_is_installed
+
 
 vs2008_sp1_extraction_path = node['vs-2008']['sp1-extraction-path'].gsub("/", "\\")
 vs2008_sp1_iso_location = node['vs-2008']['sp1-iso-location']
