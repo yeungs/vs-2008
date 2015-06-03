@@ -6,6 +6,6 @@ description      "Installs/Configures Visual Studio 2008"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          "1.0.0"
 supports         "windows"
-depends          "windows", ">= 1.3.0"
+depends          "windows", ">= 1.34.6"
 depends          "seven_zip", ">= 1.0.3"
 

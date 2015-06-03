@@ -13,7 +13,8 @@ Platform
 
 Tested on:
 
-* Windows
+* Windows 2012 R2
+* Windows 8.1
 
 Cookbooks
 ---------
