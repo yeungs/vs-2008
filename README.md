@@ -13,7 +13,7 @@ Our purpose was to run server configuration automation inside a corporate firewa
 
 Please see usage below for more details.
 
-This takes about 35 minutes to run on my machine since it downloads the ISO, unzips it to a local path and then runs the install. I tried running mount-diskimage for the ISO (available in Windows 8.1/2012 R2 or newer) to save time by skipping the unzip but it kept crashing on dismount-diskimage of the ISO in order for me to delete it. :(
+This takes about 35 minutes to run on my machine since it downloads the ISO, unzips it to a local path and then runs the install. The ISOs are immediately deleted after a successful run. I tried running mount-diskimage for the ISO (available in Windows 8.1/2012 R2 or newer) to save time from the unzip proces. However, it kept crashing on dismount-diskimage of the ISO in order for me to delete it. :(
 
 
 Requirements
@@ -45,6 +45,8 @@ Attributes
 ==========
 
 * node['vs-2008']['base-network-location']    = 'http://my-iis-redirect-server/visual-studio'
+* node['vs-2008']['preserve_iso_file'] = true  #keeps the ISOs after installation. Default is false
+
 
 Usage
 =====
@@ -64,6 +66,7 @@ License and Author
 ==================
 
 Author:: Yeung Siu (yeung.siu@citrix.com)
+Contributors: Raymond Loiseau (ray6568@yahoo.com)
 
 Copyright:: 2015 Citrix Systems, Inc.
 
