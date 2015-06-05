@@ -66,7 +66,6 @@ License and Author
 ==================
 
 Author:: Yeung Siu (yeung.siu@citrix.com)
-
 Contributors: Raymond Loiseau (ray6568@yahoo.com)
 
 Copyright:: 2015 Citrix Systems, Inc.

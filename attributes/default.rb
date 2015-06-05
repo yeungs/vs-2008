@@ -17,7 +17,11 @@ default['vs-2008']['base-package-registry'] = 'HKEY_LOCAL_MACHINE\SOFTWARE\Wow64
 default['vs-2008']['base-package-registry-version'] ='9.0.21022'
 
 
+default['vs-2008']['dotnet_key_path'] = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v3.5'
+default['vs-2008']['dotnet_key_name'] = 'Install'
+default['vs-2008']['dotnet_key_value'] = '1'
 
+	
 default['vs-2008']['sql-server-appcompat']['path']  = 'HKEY_CURRENT_USER\Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags'
 default['vs-2008']['sql-server-appcompat']['key']  = '{55e84480-b1d9-4450-bc06-cecd783d9283}'
 default['vs-2008']['sql-server-appcompat']['key-type']  = :dword
