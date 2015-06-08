@@ -65,8 +65,8 @@ Please view sample role file "sample.role.vs2008-professional-x14-26326.rb" for 
 License and Author
 ==================
 
-Author:: Yeung Siu (yeung.siu@citrix.com)
-Contributors: Raymond Loiseau (ray6568@yahoo.com)
+* Author:: Yeung Siu (yeung.siu@citrix.com)
+* Contributors: Raymond Loiseau (ray6568@yahoo.com)
 
 Copyright:: 2015 Citrix Systems, Inc.
 
