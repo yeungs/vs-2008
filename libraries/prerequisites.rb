@@ -7,10 +7,7 @@ module VS2008
 
     def is_dotnet_installed?()
       #http://blogs.msdn.com/b/deva/archive/2008/12/10/how-to-determine-which-microsoft-net-framework-version-and-service-pack-installed.aspx
-      registry_data_exists?(
-          node['vs-2008']['dotnet_key_path'],
-          { :name => node['vs-2008']['dotnet_key_name'], :type => :dword, :data => node['vs-2008']['dotnet_key_value'] }
-      )
+      registry_key_exists?(node['vs-2008']['dotnet_key_path'])      
     end
   
     def is_vs2008_sp1_installed?()

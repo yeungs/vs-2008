@@ -18,13 +18,15 @@ This takes about 35 minutes to run on my machine since it downloads the ISO, unz
 
 Requirements
 ============
+* .Net Framework 3.5
 
 Platform
 --------
 
 * Windows with Chef client 11.14.2
 
-Tested on:
+Tested on
+---------
 
 * Windows Server 2012 R2
 * Windows 8.1
@@ -67,6 +69,7 @@ License and Author
 
 * Author:: Yeung Siu (yeung.siu@citrix.com)
 * Contributors: Raymond Loiseau (ray6568@yahoo.com)
+* Contributors: Adith Hegde (Adith.Hegde@citrix.com)
 
 Copyright:: 2015 Citrix Systems, Inc.
 

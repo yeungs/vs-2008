@@ -22,6 +22,10 @@
 
 #Verify if visual Studio  is installed
 vs2008_is_installed = is_vs2008_installed?()
+ms_dotnet_35_is_installed = is_dotnet_installed?()
+
+Chef::Application.fatal!(".Net Framework 3.5 is not present") if (!ms_dotnet_35_is_installed)
+
 Chef::Log.info("Starting Visual Studio 2008 installation.")
 Chef::Log.info("Visual Studio 2008 is already installed!!! Skipping the installation.") if vs2008_is_installed
 
