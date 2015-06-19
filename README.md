@@ -36,7 +36,7 @@ Cookbooks
 
 * Windows
 * 7-zip
-* ms_dotnet35 (.net 3.5 must be enabled on Windows 8.1/2012 R2)
+* ms_dotnet::ms_dotnet3 (.net 3.5 must be enabled on Windows 8.1/2012 R2)
 
 Resources and Providers
 =======================
@@ -56,7 +56,7 @@ Usage
 * Download Visual Studio 2008 Professional (x86) - ISO: from the source "https://msdn.microsoft.com/subscriptions/json/GetDownloadRequest?brand=MSDN&locale=en-US&fileId=14233&activexDisabled=true&akamaiDL=false")
 * Download Visual Studio 2008 SP1 - ISO: https://msdn.microsoft.com/subscriptions/json/GetDownloadRequest?brand=MSDN&locale=en-us&fileId=37031&activexDisabled=true&akamaiDL=false
 * Place the ISOs you downloaded on a network share 
-* created and ran a Chef recipe (publish soon) on a seperate to configure a Microsoft IIS that created an internal HTTP website to point the file share.
+* created and ran a Chef recipe (iis-packages-server) on a seperate machine to configure a Microsoft IIS that created an internal HTTP website to point the file share.
 * Override the default attributes to match your network environment, ideally using a hostname instead of an IP (see attributes section, above)
 
 The allowed us to serve the ISO, EXE, ZIP, MSI, etc... from an internal HTTP site. The HTTP is better than using Windows NTFS network file share since we don'tt have specify any user/password credentials.

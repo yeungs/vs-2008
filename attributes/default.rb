@@ -9,6 +9,9 @@ default['vs-2008']['base-iso-name']            = "en_visual_studio_2008_ultimate
 default['vs-2008']['base-iso-location']        = File.join(default['vs-2008']['base-network-location'], default['vs-2008']['base-iso-name']).gsub("/", "\\")
 default['vs-2008']['base-iso-cache-location']  = File.join(Chef::Config[:file_cache_path], default['vs-2008']['base-iso-name']).gsub("/", "\\")
 default['vs-2008']['base-display-name']        = "Microsoft Visual Studio 2008 Ultimate - ENU"
+
+### For some reason the use of an INI file for Visual Studio 2008 customized installation doesn't work on Windows 2012 R2.
+### It was complaining about installation pre-requisites. Here we use "/full" to get the 64-bit C++ compiler.
 default['vs-2008']['install-options']		   = "/q /norestart /full /norestart"
 default['vs-2008']['timeout']		   		   = 6000
 
