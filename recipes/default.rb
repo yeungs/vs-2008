@@ -22,9 +22,10 @@
 
 #Verify if visual Studio  is installed
 vs2008_is_installed = is_vs2008_installed?()
-ms_dotnet_35_is_installed = is_dotnet_installed?()
 
-Chef::Application.fatal!(".Net Framework 3.5 is not present") if (!ms_dotnet_35_is_installed)
+## TODO. Need to do a delay .Net Framework 3.5 check. On a fresh machine with no .Net 3.5, Chef evaluates this first before the "ms_dotnet::ms_dotnet3" is executed. Hence the result is false and "ms_dotnet::ms_dotnet3" could never start.
+#ms_dotnet_35_is_installed = is_dotnet_installed?()
+#Chef::Application.fatal!(".Net Framework 3.5 is not present") if (!ms_dotnet_35_is_installed)
 
 Chef::Log.info("Starting Visual Studio 2008 installation.")
 Chef::Log.info("Visual Studio 2008 is already installed!!! Skipping the installation.") if vs2008_is_installed
